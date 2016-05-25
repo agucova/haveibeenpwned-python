@@ -1,8 +1,6 @@
 # Imports
-import requests
-import json
-from sys import argv
-import time, sys
+import json, time, sys, requests, pygments
+from pygments import highlight, lexers, formatters
 # Colors
 class bcolors:
     HEADER = '\033[95m'
@@ -28,7 +26,9 @@ if r.status_code is 200:
     if choice in yes:
         unload_json = r.text
         load_json = json.loads(unload_json)
-        print json.dumps(load_json, indent=4, sort_keys=True)
+        print bcolors.OKBLUE + "You appeared on the following leaks:" + bcolors.ENDC
+        for x in range (0, (len(load_json))):
+            print bcolors.HEADER + load_json[x]['Title'] + bcolors.ENDC
     elif choice in no:
        exit()
     else:
