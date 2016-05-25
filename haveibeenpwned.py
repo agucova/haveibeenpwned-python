@@ -1,6 +1,5 @@
 # Imports
-import json, time, sys, requests, pygments
-from pygments import highlight, lexers, formatters
+import json, time, sys, requests
 # Colors
 class bcolors:
     HEADER = '\033[95m'
